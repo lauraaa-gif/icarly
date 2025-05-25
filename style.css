@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  background: #f0a2d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.character {
+  position: absolute;
+  bottom: 30;
+  left: 50%;
+  background: url("img/character.png") no-repeat center;
+   background-size: contain;
+  transform: translateX(-50%);
+  width: 200px; 
+  animation: virar 2s infinite alternate ease-in-out;
+  z-index: 10;
+}
+
+@keyframes virar {
+  0% {
+    transform: translateX(-50%) scaleX(1);
+  }
+  100% {
+    transform: translateX(-50%) scaleX(-1);
+  }
+}
+
+.container {
+  position: relative;
+  width: 960px;  
+  height: 480px; 
+  background: #f0b7ce;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  margin: 20px auto;
+}
+.hearts .heart {
+  width: 80px;
+  height: 60px;
+  position: absolute;
+  background: url("img/heart.png") no-repeat center;
+  background-size: contain;
+  animation: floatUp 4s ease-in-out infinite;
+  transition: opacity 0.3s;
+}
+
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.message {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 2.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  text-shadow: 2px 2px 6px rgba(255, 0, 0, 0.678);
+  z-index: 20;
+  pointer-events: none; 
+}

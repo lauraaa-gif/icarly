@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Animação de Corações + Character</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="message">te amo sua baitola!!!</div>
+  <div class="container hearts"></div>
+  <img src="img/character.png" class="character" alt="Personagem">
+    <div class="hearts">
+
+  <script>
+    const container = document.querySelector('.container.hearts');
+
+    const heartWidth = 80;
+    const heartHeight = 60;
+
+    const cols = 12;
+    const rows = 8;
+
+    const pattern = [
+      [1,1,1,1,1,1,1,1,1,1,1,1],
+      [1,1,1,1,0,1,1,0,1,1,1,1],
+      [1,1,1,0,0,0,0,0,0,1,1,1],
+      [1,1,0,0,0,0,0,0,0,0,1,1],
+      [1,1,1,0,0,0,0,0,0,1,1,1],
+      [1,1,1,1,0,0,0,0,1,1,1,1],
+      [1,1,1,1,1,0,0,1,1,1,1,1],
+      [1,1,1,1,1,1,1,1,1,1,1,1]
+    ];
+
+    for(let row = 0; row < rows; row++) {
+      for(let col = 0; col < cols; col++) {
+        const div = document.createElement('div');
+        div.classList.add('heart');
+        div.style.left = (col * heartWidth) + 'px';
+        div.style.top = (row * heartHeight) + 'px';
+        div.style.opacity = pattern[row][col] ? '1' : '0'; 
+        div.style.animationDelay = `${(row * cols + col) * 0.1}s`;
+        container.appendChild(div);
+      }
+    }
+  </script>
+</body>
+</html>
